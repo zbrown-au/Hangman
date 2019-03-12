@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-header img {
+  float: left;
+  height: 70px;
+  width: 70px;
+}
+
+.App-header h1 {
+  position: relative;
+  top: -3px;
+  left: 10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+button {
+  width: 200px;
+  height: 40px;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  margin: 10px 5px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer; 
+}
+
+.letter {
+  width: 30px;
+}
+
+button:hover, button:active  {
+  background-color: #61dafb;
+  border-color: #61dafb;
+}
+
+.letter.not-in-phrase {
+  color: #fff;
+  background-color: #e87171;
+  border-color: #e87171;
+  cursor: default;
+}
+
+.letter.in-phrase {
+  color: #fff;
+  background-color: #5dd386;
+  border-color: #5dd386;
+  cursor: default;
+}
+
+.outcome h2{
+  margin-bottom: 5px;
+}
+
+.result {
+  font-weight: bold;
+  font-size: 50px;
+  margin: 0 20px 20px 20px;
+}
+
+.success {
+  color: #5dd386;
+}
+
+.fail {
+  color: #e87171;
+}
+
