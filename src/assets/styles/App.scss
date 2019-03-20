@@ -1,0 +1,100 @@
+@import 'variables';
+
+.App {
+  text-align: center;
+}
+
+header {
+  background: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: $standard-padding 0;
+
+  h1 {
+    position: relative;
+    left: 10px;
+  }
+
+  img {
+    float: left;
+    height: 70px;
+    width: 70px;
+  }
+}
+
+.page {
+  padding-top: $standard-padding;
+
+  h2 {
+    padding-top: $standard-padding;
+  }
+  
+  h3 {
+    padding-bottom: $standard-padding;
+  }
+}
+
+.loader {
+  display: inline-block;
+}
+
+button {
+  width: 200px;
+  height: 40px;
+  color: $white;
+  background-color: $hangman-blue;
+  border-color: $hangman-blue;
+  margin: 10px 5px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer; 
+
+  &:hover, &:active  {
+    background-color: $hangman-blue-active;
+    border-color: $hangman-blue-active;
+  }
+  
+  &.letter {
+    width: 30px;
+    color: $white;
+    cursor: default;
+
+    &.not-in-phrase {      
+      background-color: $red;
+      border-color: $red;
+    }
+
+    &.in-phrase {
+      background-color: $green;
+      border-color: $green;
+    }
+  }
+}
+
+.outcome{
+  h2 {
+    margin-top: $standard-padding;
+    margin-bottom: 5px;
+  } 
+  
+  .result {
+    font-weight: bold;
+    font-size: 50px;
+    margin: 0 20px 20px 20px;
+
+    &.success {
+      color: $green;
+    }
+    
+    &.fail {
+      color: $red;
+    }
+  }
+}
+
+
+
+

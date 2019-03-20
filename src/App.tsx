@@ -1,11 +1,13 @@
 import * as React from 'react';
-import './App.css';
+import './assets/styles/App.scss';
 import { observer } from 'mobx-react';
 import Header from './components/layout/Header';
-import Letters from './components/Letters';
+import Loader from './components/layout/Loader';
+import Keyboard from './components/Keyboard';
 import Phrase from './components/Phrase';
 import Outcome from './components/Outcome';
 import store from './data/Store';
+import { Container, Row, Col } from 'react-bootstrap'
 
 class App extends React.Component {
   async componentDidMount() {
@@ -19,15 +21,23 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Phrase />
-        <Letters />
-        {store.isGameOver &&
-          <Outcome />
-        }
-        <div>
-          <button type="button" onClick={this.loadNewPhrase}>NEW GAME</button>
-        </div>
+        <Header />       
+        <Container bsPrefix="page">
+          <Row>
+            <Col>
+              <Loader isLoading={store.loading}>
+                <Phrase />
+                <Keyboard />
+                {store.isGameOver &&
+                  <Outcome />
+                }
+              </Loader>        
+              <div>
+                <button type="button" onClick={this.loadNewPhrase}>NEW GAME</button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

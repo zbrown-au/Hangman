@@ -10,7 +10,7 @@ interface IProps {
 }
 
 function onLetterClick (letter: ILetter) {
-    if (!letter.isUsed && store.guessesLeft > 0) {
+    if (!letter.isUsed && !store.isGameOver) {
         let index = _.findIndex(store.letters, x => x.code === letter.code);
 
         if (!letter.isInPhrase) {

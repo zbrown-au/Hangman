@@ -8,12 +8,15 @@ const CharZCode = 91;
 const MaxGuesses = 10;
 
 class Store {
+    @observable loading = true;
     @observable phrase = '';
     @observable guessesLeft = MaxGuesses;
     @observable letters: IObservableArray<ILetter> = observable.array(Array<ILetter>());
 
     @action
     async loadNewPhrase() {
+        this.loading = true;
+
         var phrase = await baconIpsumApi.getPhrase();
         this.phrase = phrase.toUpperCase();
 
@@ -28,6 +31,8 @@ class Store {
     
         this.letters = observable.array(letters);
         this.guessesLeft = MaxGuesses;
+
+        this.loading = false;
     }
 
     @computed
@@ -40,7 +45,7 @@ class Store {
             guesses.push(letter.char)
         );
 
-        return 'Guesses: ' + guesses.join(' ');
+        return 'Guesses: ' + guesses.join('');
     }
 
     @computed
