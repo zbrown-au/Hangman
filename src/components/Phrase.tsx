@@ -7,7 +7,7 @@ const Phrase: React.FunctionComponent = () => {
         <div>
             <h1>{store.isGameOver ? store.phrase : store.obfuscatedPhrase}</h1>
             <h2>{store.guesses}</h2>
-            <h3>({store.guessesLeft} remaining)</h3>
+            <p>({store.guessesLeft} remaining)</p>
         </div>
     );
 };

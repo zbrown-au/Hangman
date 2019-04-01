@@ -1,12 +1,13 @@
-import * as React from 'react';
-import './assets/styles/App.scss';
-import { observer } from 'mobx-react';
-import Header from './components/layout/Header';
-import Loader from './components/layout/Loader';
-import Keyboard from './components/Keyboard';
-import Phrase from './components/Phrase';
-import Outcome from './components/Outcome';
-import store from './data/Store';
+import * as React from 'react'
+import './assets/styles/App.scss'
+import { observer } from 'mobx-react'
+import Header from './components/layout/Header'
+import Loader from './components/layout/Loader'
+import Hangman from './components/Hangman'
+import Keyboard from './components/Keyboard'
+import Phrase from './components/Phrase'
+import Outcome from './components/Outcome'
+import store from './data/Store'
 import { Container, Row, Col } from 'react-bootstrap'
 
 class App extends React.Component {
@@ -26,15 +27,20 @@ class App extends React.Component {
           <Row>
             <Col>
               <Loader isLoading={store.loading}>
+                <Hangman />
                 <Phrase />
-                <Keyboard />
+                {!store.isGameOver &&
+                  <Keyboard />
+                }
                 {store.isGameOver &&
                   <Outcome />
                 }
               </Loader>        
-              <div>
-                <button type="button" onClick={this.loadNewPhrase}>NEW GAME</button>
-              </div>
+              {!store.loading &&
+                <div>
+                    <button type="button" onClick={this.loadNewPhrase}>NEW GAME</button>
+                </div>
+              }
             </Col>
           </Row>
         </Container>

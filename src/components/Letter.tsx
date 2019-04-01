@@ -22,10 +22,7 @@ function onLetterClick (letter: ILetter) {
 }
 
 const Letter: React.FunctionComponent<IProps> = (props) => {
-    let code = props.letter.code;
-    let char = props.letter.char;
-    let isInPhrase = props.letter.isInPhrase;
-    let isUsed = props.letter.isUsed;
+    let { char, isInPhrase, isUsed } = props.letter;
 
     let buttonClasses = classNames({
         'letter': true,

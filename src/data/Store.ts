@@ -5,7 +5,7 @@ import { baconIpsumApi } from './BaconIpsumApi';
 
 const CharACode = 65;
 const CharZCode = 91;
-const MaxGuesses = 10;
+const MaxGuesses = 8;
 
 class Store {
     @observable loading = true;
@@ -46,11 +46,6 @@ class Store {
         );
 
         return 'Guesses: ' + guesses.join('');
-    }
-
-    @computed
-    get displayPhrase() {
-        return this.phrase;
     }
 
     @computed
